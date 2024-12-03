@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Home = () => {
   const [promoIndex, setPromoIndex] = useState(0);
   const [categoryIndex, setCategoryIndex] = useState(0);
+  
 
   const promoImages = [
     'src/img/promo1.jpg.webp',
@@ -39,10 +40,11 @@ const Home = () => {
     categoryImages.slice(0, Math.max(0, categoryIndex + 4 - categoryImages.length))
   );
 
+
   return (
     <>
   {/* navbar start */}
-  <header className="absolute border top-0 left-0 w-full flex items-center z-10 fixed">
+  <header id='navbar' className="border top-0 left-0 w-full flex items-center z-50 sticky bg-white">
     <div className="container flex items-center justify-between">
       <div className="flex items-center justify-start">
         <a
@@ -895,10 +897,11 @@ const Home = () => {
       </div> 
 
 
-  {/* peralatan masak */}
-  <section className="pt-10">
+  {/* menu kebutuhan */}
+  <section id='menuKebutuhan' className="pt-10">
     <div className="container">
-      <div className="my-4 grid grid-cols-5 gap-4">
+      {/* grid button */}
+      <div id='gridButton' className="sticky top-16 z-40 my-4 grid grid-cols-5 gap-4">
         <button className="h-14 p-2 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-lg text-white font-semibold">
           perawatan Masak
         </button>
@@ -912,6 +915,7 @@ const Home = () => {
           Mirip Yang Kamu Cari
         </button>
       </div>
+      {/* grid button end */}
       <div className="my-5 grid grid-cols-6 gap-2">
         <div className="h-80 w-44 items-center rounded-lg shadow-md flex-wrap">
           <img
@@ -2928,7 +2932,7 @@ const Home = () => {
       </div>
     </div>
   </section>
-  {/* peralatan Masak end */}
+  {/* menu kebutuhan */}
 
 
   <div className="pt-10">
@@ -2936,50 +2940,50 @@ const Home = () => {
   </div>
 
   {/* Footer */}
-  <footer className="pt-10">
-  <div className="container flex flex-wrap">
+  <footer id='footer' className="pt-10">
+  <div className="container flex flex-wrap cursor-pointer">
     {/* Kolom Tokopedia */}
     <div className="flex-1">
       <h3 className="font-bold text-xl py-2">Tokopedia</h3>
-      <p className="text-sm text-slate-400 py-2">About Tokopedia</p>
-      <p className="text-sm text-slate-400 py-2">
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600">About Tokopedia</p>
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600">
         Intellectual Property Rights
       </p>
-      <p className="text-sm text-slate-400 py-2">Career</p>
-      <p className="text-sm text-slate-400 py-2">Blog</p>
-      <p className="text-sm text-slate-400 py-2">Tokopedia Affiliate program</p>
-      <p className="text-sm text-slate-400 py-2">Tokopedia B2B Digital</p>
-      <p className="text-sm text-slate-400 py-2">
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600">Career</p>
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600">Blog</p>
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600">Tokopedia Affiliate program</p>
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600">Tokopedia B2B Digital</p>
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600 ">
         Tokopedia Marketing Solutions
       </p>
-      <p className="text-sm text-slate-400 py-2">
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600 ">
         Kalkulator indeks Masa Tubuh
       </p>
-      <p className="text-sm text-slate-400 py-2">Tokopedia Farma</p>
-      <p className="text-sm text-slate-400 py-2">Promo Hari Ini</p>
-      <p className="text-sm text-slate-400 py-2">Beli Lokal</p>
-      <p className="text-sm text-slate-400 py-2">Promo Guncang</p>
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600 ">Tokopedia Farma</p>
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600 ">Promo Hari Ini</p>
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600 ">Beli Lokal</p>
+      <p className="text-sm text-slate-400 py-2 hover:text-green-600 ">Promo Guncang</p>
     </div>
     <div className="flex-1">
       {/* Kolom Beli */}
       <div className="flex-1 order-1">
         <h3 className="font-bold text-xl">Buy</h3>
-        <p className="text-sm text-slate-400 py-2">Bill &amp; Topup</p>
-        <p className="text-sm text-slate-400 py-2">Tokopedia COD</p>
-        <p className="text-sm text-slate-400 py-2">Bebas Ongkir</p>
+        <p className="text-sm text-slate-400 py-2 hover:text-green-600 ">Bill &amp; Topup</p>
+        <p className="text-sm text-slate-400 py-2 hover:text-green-600 ">Tokopedia COD</p>
+        <p className="text-sm text-slate-400 py-2 hover:text-green-600 ">Bebas Ongkir</p>
       </div>
       {/* Kolom Jual */}
       <div className="flex-1 order-2">
         <h3 className="font-bold text-xl">Sell</h3>
-        <p className="text-sm text-slate-400 py-2">Seller Education Center</p>
-        <p className="text-sm text-slate-400 py-2">Register Official Store</p>
+        <p className="text-sm text-slate-400 py-2 hover:text-green-600">Seller Education Center</p>
+        <p className="text-sm text-slate-400 py-2 hover:text-green-600">Register Official Store</p>
       </div>
       {/* Kolom Bantuan dan Panduan */}
       <div className="flex-1 order-3">
         <h3 className="font-bold text-xl">Guide and Help</h3>
-        <p className="text-sm text-slate-400 py-2">Tokopedia Care</p>
-        <p className="text-sm text-slate-400 py-2">Terms and Condition</p>
-        <p className="text-sm text-slate-400 py-2">Privasi</p>
+        <p className="text-sm text-slate-400 py-2  hover:text-green-600">Tokopedia Care</p>
+        <p className="text-sm text-slate-400 py-2  hover:text-green-600">Terms and Condition</p>
+        <p className="text-sm text-slate-400 py-2  hover:text-green-600">Privasi</p>
       </div>
     </div>
     <div className="flex-1">
@@ -3101,7 +3105,7 @@ const Home = () => {
       </div>
     </div>
   </div>
-  <div className="pt-10">
+  <div className="pt-96">
     <div className="bg-slate-900 border w-full" />
   </div>
   <p className="text-center text-sm text-slate-400 py-2">
@@ -3109,7 +3113,6 @@ const Home = () => {
   </p>
 </footer>
   {/* Footer end */}
-
 
   
     </>
