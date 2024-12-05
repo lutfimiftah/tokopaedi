@@ -44,8 +44,11 @@ const Home = () => {
   return (
     <>
   {/* navbar start */}
-  <header id='navbar' className="border top-0 left-0 w-full flex items-center z-50 sticky bg-white">
-    <div className="container flex items-center justify-between">
+  <header
+    id="navbar"
+    className="flex flex-wrap border sticky top-0 z-50 bg-white"
+  >
+    <div className="flex items-center justify-between w-full px-4">
       <div className="flex items-center justify-start">
         <a
           href="#"
@@ -88,11 +91,32 @@ const Home = () => {
         </button>
       </div>
     </div>
+    {/* added new text */}
+    <div className="w-full flex justify-center py-1">
+      <p className="text-sm text-slate-400 px-1 hover:text-green-600 cursor-pointer">
+        Samsung Note 10
+      </p>
+      <p className="text-sm text-slate-400 px-1 hover:text-green-600 cursor-pointer">
+        Charger Mobil
+      </p>
+      <p className="text-sm text-slate-400 px-1 hover:text-green-600 cursor-pointer">
+        Samsung A73
+      </p>
+      <p className="text-sm text-slate-400 px-1 hover:text-green-600 cursor-pointer">
+        Pull Up Bar
+      </p>
+      <p className="text-sm text-slate-400 px-1 hover:text-green-600 cursor-pointer">
+        HDD 1tb
+      </p>
+      <p className="text-sm text-slate-400 px-1 hover:text-green-600 cursor-pointer">
+        XBOX series X
+      </p>
+    </div>
   </header>
   {/* navbar end */}
     
       {/* promo start */}
-      <section className="pt-36">
+      <section className="pt-5">
         <div className="container">
           <div className="relative flex overflow-hidden">
             <div
@@ -896,12 +920,11 @@ const Home = () => {
         <div class="p-1 bg-slate-300 bg-opacity-40 w-full shadow-lg"></div>
       </div> 
 
-
   {/* menu kebutuhan */}
   <section id='menuKebutuhan' className="pt-10">
     <div className="container">
       {/* grid button */}
-      <div id='gridButton' className="sticky top-16 z-40 my-4 grid grid-cols-5 gap-4">
+      <div id='gridButton' className="my-4 grid grid-cols-5 gap-4">
         <button className="h-14 p-2 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-lg text-white font-semibold">
           perawatan Masak
         </button>
