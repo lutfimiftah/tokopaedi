@@ -1,44 +1,70 @@
 import React, { useState, useEffect } from 'react';
+import Promo, { promoImages } from "./Promo";
+import Category, { categoryImages } from "./Category";
+import NavbarK from "./NavbarK";
+import login from './login';
+
 
 const Home = () => {
   const [promoIndex, setPromoIndex] = useState(0);
   const [categoryIndex, setCategoryIndex] = useState(0);
-  
+  const [showOriginalNavbar, setShowOriginalNavbar] = useState(true);
+  const [showNavbarK, setShowNavbarK] = useState(false);
 
-  const promoImages = [
-    'src/img/promo1.jpg.webp',
-    'src/img/promo2.jpg',
-    'src/img/promo3.jpg',
-    'src/img/promo4.jpg'
-  ];
-
-  const categoryImages = [
-    'src/img/kategori/figure.webp',
-    'src/img/kategori/flatshoes.webp',
-    'src/img/kategori/hardisk.webp',
-    'src/img/kategori/makanan.webp',
-    'src/img/kategori/tasselempang.webp',
-    'src/img/kategori/toples.webp'
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPromoIndex((prevIndex) => (prevIndex + 1) % promoImages.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [promoImages.length]);
+ 
 
   const showNextCategory = () => {
     setCategoryIndex((prevIndex) => (prevIndex + 1) % categoryImages.length);
   };
 
   const showPrevCategory = () => {
-    setCategoryIndex((prevIndex) => (prevIndex - 1 + categoryImages.length) % categoryImages.length);
+    setCategoryIndex(
+      (prevIndex) => (prevIndex - 1 + categoryImages.length) % categoryImages.length
+    );
   };
 
-  const visibleCategoryImages = categoryImages.slice(categoryIndex, categoryIndex + 4).concat(
-    categoryImages.slice(0, Math.max(0, categoryIndex + 4 - categoryImages.length))
-  );
+  const visibleCategoryImages = categoryImages
+    .slice(categoryIndex, categoryIndex + 4)
+    .concat(
+      categoryImages.slice(
+        0,
+        Math.max(0, categoryIndex + 4 - categoryImages.length)
+      )
+    );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbar = document.getElementById("navbar");
+      const gridButton = document.getElementById("gridButton");
+      const menuKebutuhan = document.getElementById("menuKebutuhan");
+      const footer = document.getElementById("footer");
+
+      const scrollY = window.scrollY;
+
+      // Position for menuKebutuhan
+      const menuKebutuhanTop = menuKebutuhan.offsetTop;
+      const footerTop = footer.offsetTop;
+
+      // Show NavbarK and hide original navbar
+      if (scrollY >= menuKebutuhanTop && scrollY < footerTop) {
+        setShowOriginalNavbar(false);
+        setShowNavbarK(true);
+      } 
+      // Show original navbar when scrolling back up
+      else if (scrollY < menuKebutuhanTop) {
+        setShowOriginalNavbar(true);
+        setShowNavbarK(false);
+      } 
+      // Hide NavbarK at footer
+      else if (scrollY >= footerTop) {
+        setShowNavbarK(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
 
   return (
@@ -114,7 +140,16 @@ const Home = () => {
     </div>
   </header>
   {/* navbar end */}
-    
+
+    {/* NavbarK */}
+    {showNavbarK && <NavbarK />}
+    {/* categori */}
+    {/* <Category
+        visibleCategoryImages={visibleCategoryImages}
+        showPrevCategory={showPrevCategory}
+        showNextCategory={showNextCategory}
+      />
+     */}
       {/* promo start */}
       <section className="pt-5">
         <div className="container">
@@ -186,18 +221,11 @@ const Home = () => {
         <p className="font-bold text-xl mb-4">Kategori Pilihan</p>
         <div className="relative flex items-center justify-center">
           {/* Images */}
-          {visibleCategoryImages.map((src, i) => (
-            <img
-              key={i}
-              src={src}
-              alt={`ktg${i + 1}`}
-              className="w-20 h-20 mx-1 rounded-lg border"
-            />
-          ))}
+          <Category visibleCategoryImages={visibleCategoryImages}/>
           {/* Button Prev */}
           <button
             onClick={showPrevCategory}
-            className="absolute left-0 p-2 bg-gray-200 rounded-full hover:bg-gray-300 transition"
+            className="absolute left-0 p-2 opacity-50 hover:opacity-90"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +246,7 @@ const Home = () => {
           {/* Button Next */}
           <button
             onClick={showNextCategory}
-            className="absolute right-0 p-2 bg-gray-200 rounded-full hover:bg-gray-300 transition"
+            className="absolute right-0 p-2 opacity-50 hover:opacity-90"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -3009,6 +3037,8 @@ const Home = () => {
         <p className="text-sm text-slate-400 py-2  hover:text-green-600">Privasi</p>
       </div>
     </div>
+
+    {/* sosial media */}
     <div className="flex-1">
       <div className="font-bold text-xl">Follow Us</div>
       <div className="flex">
@@ -3016,6 +3046,7 @@ const Home = () => {
         <div className="px-1">
           <a href="https://www.instagram.com/tokopedia">
             <svg
+            className='transform transition-transform duration-300 hover:scale-125'
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
@@ -3073,6 +3104,7 @@ const Home = () => {
         <div className="px-1">
           <a href="https://x.com/tokopedia">
             <svg
+            className='transform transition-transform duration-300 hover:scale-125'
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
@@ -3088,6 +3120,7 @@ const Home = () => {
         <div className="px-1">
           <a href="https://www.pinterest.com/tokopedia/">
             <svg
+            className='transform transition-transform duration-300 hover:scale-125'
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
@@ -3107,6 +3140,7 @@ const Home = () => {
         <div className="px-1">
           <a href="https://web.facebook.com/tokopedia?_rdc=1&_rdr">
             <svg
+            className='transform transition-transform duration-300 hover:scale-125'
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
