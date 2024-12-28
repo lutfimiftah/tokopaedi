@@ -1,12 +1,14 @@
 
 /* Styling untuk container utama */
 .container {
+    z-index: 1;
     width: 500px;
-    height: 400px;
+    height: auto;
     border: 1px solid #000;
     border-radius: 10px;
     padding: 1rem;
     position: relative;
+    background: white;
 }
 
 /* Styling untuk header */
@@ -19,7 +21,7 @@
 .close-button {
     border: none;
     background: none;
-    font-size: 1rem;
+    font-size: 2rem;
     cursor: pointer;
 }
 

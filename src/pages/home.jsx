@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Promo, { promoImages } from "./Promo";
 import Category, { categoryImages } from "./Category";
 import NavbarK from "./NavbarK";
-import login from './login';
+import Login from './login';
+
 
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [showOriginalNavbar, setShowOriginalNavbar] = useState(true);
   const [showNavbarK, setShowNavbarK] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
  
 
@@ -109,9 +111,25 @@ const Home = () => {
         </div>
       </div>
       <div className="flex items-center justify-end">
-        <button className="border border-green-500 w-20 h-10 rounded-lg text-green-500 font-semibold">
+        <button className="border border-green-500 w-20 h-10 rounded-lg text-green-500 font-semibold" onClick={() => setShowLogin(!showLogin)}>
           Login
         </button>
+        {showLogin && (
+      <div id="login-wrapper" style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)' // Latar belakang transparan
+      }}>
+        <Login />
+      </div>
+    )}
+
         <button className="bg-green-500 rounded-lg w-20 h-10 text-white font-semibold ml-2">
           Register
         </button>
