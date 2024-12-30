@@ -3,6 +3,8 @@ import Promo, { promoImages } from "./Promo";
 import Category, { categoryImages } from "./Category";
 import NavbarK from "./NavbarK";
 import Login from './login';
+import styles from '../style/login.module.css';
+
 
 
 
@@ -115,17 +117,7 @@ const Home = () => {
           Login
         </button>
         {showLogin && (
-      <div id="login-wrapper" style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)' // Latar belakang transparan
-      }}>
+      <div className={`${styles['login-wrapper']} login-modal`}>
         <Login />
       </div>
     )}
@@ -135,6 +127,7 @@ const Home = () => {
         </button>
       </div>
     </div>
+
     {/* added new text */}
     <div className="w-full flex justify-center py-1">
       <p className="text-sm text-slate-400 px-1 hover:text-green-600 cursor-pointer">
@@ -962,8 +955,8 @@ const Home = () => {
   {/* bayar di tempat end */}
 
 
-  <div class="pt-10">
-        <div class="p-1 bg-slate-300 bg-opacity-40 w-full shadow-lg"></div>
+  <div className="pt-10">
+        <div className="p-1 bg-slate-300 bg-opacity-40 w-full shadow-lg"></div>
       </div> 
 
   {/* menu kebutuhan */}

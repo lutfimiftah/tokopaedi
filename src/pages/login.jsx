@@ -1,12 +1,17 @@
 import React from 'react';
 import styles from '../style/login.module.css';
+import closeIcon from '../assets/close-svgrepo-com.svg';
+import qrCodeIcon from '../assets/qr-code-scan-svgrepo-com.svg';
+
+
+console.log(styles)
 
 const login = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <button className={styles['close-button']}> {/* Perhatikan penggunaan bracket notation */}
-          <img src="src/assets/close-svgrepo-com.svg" alt="close" />
+        <button className={styles['close-button']}>
+          <img src={closeIcon} alt="close" />
         </button>
       </div>
       <p className={styles['login-text']}>Login</p>
@@ -29,7 +34,7 @@ const login = () => {
         </div>
         <div className={styles['other-buttons']}>
           <button className={styles['qr-button']}>
-            <img src="src/assets/qr-code-scan-svgrepo-com.svg" alt="QR Code" />
+            <img src={qrCodeIcon} alt='qr' />
             Scan Kode QR
           </button>
           <button className={styles['other-methods']}>Other Methods</button>
