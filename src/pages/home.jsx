@@ -3,7 +3,8 @@ import Promo, { promoImages } from "./Promo";
 import Category, { categoryImages } from "./Category";
 import NavbarK from "./NavbarK";
 import Login from './login';
-import Minuman from "./Minuman";
+import { useNavigate } from 'react-router-dom';
+import Minuman from './minuman'
 import { PeralatanMasak } from './PeralatanMasak';
 
 
@@ -17,6 +18,7 @@ const Home = () => {
   const [showNavbarK, setShowNavbarK] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [ activeComponent, setActiveComponent] = useState(null)
+  const navigate = useNavigate();
 
  
 
@@ -125,7 +127,7 @@ const Home = () => {
             </div>
           )}
           {/* Tombol Register */}
-          <button className="bg-green-500 rounded-lg w-20 h-10 text-white font-semibold ml-2">
+          <button className="bg-green-500 rounded-lg w-20 h-10 text-white font-semibold ml-2" onClick={() => navigate("/register")}>
             Register
           </button>
         </div>
