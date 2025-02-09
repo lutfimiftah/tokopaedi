@@ -299,7 +299,7 @@ const Home = () => {
                 type="number"
                 name="nomor"
                 placeholder="Masukan Nomor"
-                className="block w-full mt-1 rounded-md  shadow-sm focus:ring-green-400 focus:border-green-400 focus:outline-none ring-1"
+                className="block w-full mt-1 rounded-md  shadow-sm focus:ring-green-400 focus:border-green-400 focus:outline-none ring-1 no-spinner"
               />
             </label>
             <label className="block text-sm">
@@ -964,7 +964,12 @@ const Home = () => {
         </button>
       </div>
       {/* grid button end */}
-
+      <div className="mt-4">
+        {activeComponent === "minuman" && <Minuman />}
+        {activeComponent === "peralatanMasak" && <PeralatanMasak />}
+        {activeComponent === "bajuTidur" && <p>Konten Baju Tidur</p>}
+        {activeComponent === "elektronik" && <p>Konten Elektronik</p>}
+      </div>
       {/* tampilan grid button  */}
      
   

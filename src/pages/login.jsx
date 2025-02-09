@@ -17,7 +17,7 @@ const Login = ({ onClose }) => {
       </a>
       <form className="mb-4">
         <p>Phone Number Or Email</p>
-        <input className="border focus:outline-none focus:ring-1 focus:ring-green-400 w-full h-10 rounded-md" type="text" />
+        <input className="border focus:outline-none focus:ring-1 focus:ring-green-400 w-full h-10 rounded-md no-spinner" type="number" />
       </form>
       <a href="#" className="block mb-4 text-right font-semibold text-green-600">
         Need Help?
