@@ -4,6 +4,8 @@ import qrCodeIcon from '../assets/qr-code-scan-svgrepo-com.svg';
 
 
 const Login = ({ onClose }) => {
+  const [email, setEmail] = useState('');
+  
   return (
     <div className="z-[9999] w-[350px] shadow-xl rounded-[10px] p-4 bg-white">
       <div className="flex justify-end">
@@ -17,12 +19,21 @@ const Login = ({ onClose }) => {
       </a>
       <form className="mb-4">
         <p>Phone Number Or Email</p>
-        <input className="border focus:outline-none focus:ring-1 focus:ring-green-400 w-full h-10 rounded-md no-spinner" type="number" />
+        <input className="border focus:outline-none focus:ring-1 focus:ring-green-400 w-full h-10 rounded-md no-spinner" type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)} />
       </form>
       <a href="#" className="block mb-4 text-right font-semibold text-green-600">
         Need Help?
       </a>
-      <button className="block mb-4 w-full bg-slate-300 rounded-lg h-10 text-slate-100 font-semibold">
+      <button
+      disabled={!email}
+      className={`block mb-4 w-full h-10 rounded-lg font-semibold transition ${
+        email
+          ? 'bg-green-500 text-white hover:bg-green-600'
+          : 'bg-slate-300 text-slate-100 cursor-not-allowed'
+      }`}
+    >
         Next
       </button>
       <div className="relative mb-4 text-center">
